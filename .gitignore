@@ -1,0 +1,10 @@
+# Docker persistent data
+config/
+downloads/
+
+# Temporary files
+*.deb
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

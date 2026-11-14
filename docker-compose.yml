@@ -1,0 +1,20 @@
+services:
+  omniget:
+    build: .
+    image: omniget-local:latest
+    container_name: omniget
+    restart: unless-stopped
+    privileged: true
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - TITLE=OmniGet
+    volumes:
+      - ./config:/config
+      - ./downloads:/config/Downloads
+      # Optional: bind mount external downloads directory (e.g. qBittorrent)
+      - /home/pi5sam/docker/qbittorrent/downloads:/downloads
+    ports:
+      - "3005:3000"
+    shm_size: "1gb"
